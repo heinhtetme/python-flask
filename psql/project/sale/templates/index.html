@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Items
+{% endblock %}
+
+{% block body %}
+    <h1>Order a Laptop</h1>
+
+    <form action="{{url_for('order')}}" method="post">
+        <div class="form-group">
+            <select class="form-control" name="item_id">
+                {% for laptop in laptops %}
+                    <option value="{{laptop.id}}">{{laptop.brand_name}},{{laptop.type}},{{laptop.price}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="name" placeholder="Customer Name">
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary">Order Your Laptop</button>
+        </div>
+    </form>
+{% endblock %}
