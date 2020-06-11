@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Laptops
+{% endblock %}
+
+{% block body %}
+    <h1>All Laptops</h1>
+    <ul>
+        {% for brand in laptops %}
+            <li>
+                <a href="{{url_for('laptop',item_id=brand.id)}}">
+                    {{brand.brand}},{{brand.type}},${{brand.price}}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

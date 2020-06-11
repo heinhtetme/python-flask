@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Title
+{% endblock %}
+
+{% block body %}
+    <h1>Song Title</h1>
+
+    <form action="{{ url_for('playlist') }}" method="post">
+
+        <div class="form-group">
+            <select class="form-control" name="artist_id">
+                {% for artist in artists %}
+                    <option value="{{ artist.id }}">{{ artist.artist_name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <input class="form-control" name="name" placeholder="Artist Name">
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-primary">Enter artist name:</button>
+        </div>
+
+    </form>
+{% endblock %}

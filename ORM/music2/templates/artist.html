@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block artist %}
+    Artist
+{% endblock %}
+
+{% block body %}
+    <h1>Artist Details</h1>
+
+    <ul>
+        <li>Artist Name: {{ artist.artist_name }}</li>
+    </ul>
+
+    <h2>title</h2>
+    <ul>
+        {% for title in titles %}
+            <li>{{ title.title_name }}</li>
+        {% else %}
+            <li>No Titles.</li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
